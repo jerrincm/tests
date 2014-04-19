@@ -1,0 +1,35 @@
+
+            
+            <record model="ir.ui.view" id="font_tree_view">
+                <field name="name">ascs.frontdesk.tree</field>
+                <field name="model">ascs.frontdesk</field>
+                <field name="type">tree</field>
+                <field name="arch" type="xml">
+                    <tree string="tree_string">
+                        <field name="name"/>
+                    </tree>
+                </field>
+            </record>
+
+            <record model="ir.ui.view" id="font_form_view">
+                <field name="name">ascs.frontdesk.form</field>
+                <field name="model">ascs.frontdesk</field>
+                <field name="type">form</field>
+                <field name="arch" type="xml">
+                    <form string="form_string">
+                        <field name="name" select="1"/>
+                    </form>
+                </field>
+            </record>
+
+            <record model="ir.actions.act_window" id="action_font_tree_view">
+                <field name="name">ascs.frontdesk</field>
+                <field name="type">ir.actions.act_window</field>
+                <field name="res_model">ascs.frontdesk</field>
+		   <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+                <field name="view_type">form</field>
+                <field name="view_mode">tree,form</field>
+                <field name="view_id" ref="font_tree_view"/>
+            </record>
+
+			<menuitem id="font_menu" name="ascs.frontdesk" parent="Frontdesk_menu" action="action_font_tree_view"/>
